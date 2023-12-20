@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slide-cont">
+        <div class="slider">
+            <div class="slide active" style="background: url(imgs/i1.avif);"></div>
+            <div class="slide" style="background: url(imgs/i2.avif);"></div>
+            <div class="slide" style="background: url(imgs/i3.jpeg);"></div>
+            <div class="slide" style="background: url(imgs/i4.jpeg);"></div>
+            <div class="slide" style="background: url(imgs/i5.jpeg);"></div>
+        </div>
+        <div class="slider-controls">
+            <button class="pre-sl">prev</button>
+            <button class="next-sl">next</button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector(".slider");
+        const slides = document.querySelectorAll(".slide");
+        var a=slides.length
+        console.log(a)
+        const prevBtn = document.querySelector(".pre-sl");
+        const nextBtn = document.querySelector(".next-sl");
+
+        var slideIn=0;
+        slides[slideIn].classList.add('active');
+        prevBtn.addEventListener('click', prevslide);
+        nextBtn.addEventListener('click', nextslide);
+        function prevslide(){
+            slides[slideIn].classList.remove('active');
+            slideIn=(slideIn===0)? a - 1 : slideIn - 1;
+            slides[slideIn].classList.add('active');
+            slider.style.transform=`translateX(-${slideIn * 100}%)`;
+        }
+        function nextslide(){
+            slides[slideIn].classList.remove('active');
+            slideIn=(slideIn == a-1)? 0 : slideIn + 1;
+            slides[slideIn].classList.add('active');
+            slider.style.transform=`translateX(-${slideIn * 100}%)`;
+}
+    </script>
+</body>
+</html>

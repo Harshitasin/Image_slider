@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="indo.css">
+</head>
+
+<body>
+    <h1>My Products</h1>
+
+    <div class="gallary-wrap">
+        <img src="imgs/back.png" id="backbtn">
+        <div class="gallary">
+            <div>
+                <span><img src="imgs/i1.avif" alt=""></span>
+                <span><img src="imgs/i2.avif" alt=""></span>
+                <span><img src="imgs/i3.jpeg" alt=""></span>
+            </div>
+            <div>
+                <span><img src="imgs/i6.png" alt=""></span>
+                <span><img src="imgs/i4.jpeg" alt=""></span>
+                <span><img src="imgs/i5.jpeg" alt=""></span>
+            </div>
+        </div>
+        <img src="imgs/fwd.png" id="fwdbtn">
+    </div>
+
+
+    <script>
+        let scrcon=document.querySelector(".gallary");
+        let backbtn=document.getElementById("backbtn");
+        let fwdbtn=document.getElementById("fwdbtn");
+        scrcon.addEventListener("wheel",(evt) => {
+            evt.preventDefault();
+            scrcon.scrollLeft += evt.deltaY;
+            scrcon.style.scrollBehaviour="auto";
+
+        });
+
+
+        fwdbtn.addEventListener("click", () =>{
+            scrcon.style.scrollBehavior="smooth";
+            scrcon.scrollLeft += 900;
+        });
+
+        backbtn.addEventListener("click", () =>{
+            scrcon.style.scrollBehavior="smooth";
+            scrcon.scrollLeft -= 900;
+        });
+    </script>
+</body>
+
+</html>
